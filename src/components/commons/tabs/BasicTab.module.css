@@ -1,0 +1,20 @@
+.container {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.tabItem {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 5px;
+  border-radius: 10px;
+
+  cursor: pointer;
+}

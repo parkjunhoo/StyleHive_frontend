@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  height: 60px;
+  width: 50%;
+  margin: 5px;
+  align-items: center;
+  border-radius: 10px;
+}
+.verticalLine {
+  width: 1px;
+  height:100%;
+  background-color: rgba(34,34,34,.1);
+}
+.tagText {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px;
+}
+
+.priceText {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.descText {
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0 10px;
+}

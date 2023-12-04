@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+    style={{
+      fontFamily: "'Noto Sans KR', sans-serif",
+    }}
+    className="App">
+      <div style={{backgroundColor:"black", height:"64px" ,padding:"20px 40px"}}>
+        <h1 style={{color:"white"}}>HEADER</h1>
+      </div>
+      <ProductDetail />
     </div>
   );
 }

@@ -1,0 +1,29 @@
+p {
+  margin: 0;
+  padding: 0;
+  color: #222222;
+}
+
+.priceContainer{
+  margin: 5px 0;
+}
+.titleContainer{
+  margin: 15px 0;
+}
+.priceSubText {
+  font-size: 14px;
+  font-weight: 400;
+}
+.priceText {
+  font-size: 27px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.titleText {
+  font-size: 18px;
+}
+.titleSubText {
+  font-size: 14px;
+  color: #22222280;
+}

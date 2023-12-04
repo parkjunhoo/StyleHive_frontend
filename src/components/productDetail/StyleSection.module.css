@@ -1,0 +1,9 @@
+.container {
+  column-count: 4;
+  column-gap: 0px;
+}
+.container>div {
+  display: inline-block;
+  padding: 15px;
+  box-sizing: border-box;
+}
