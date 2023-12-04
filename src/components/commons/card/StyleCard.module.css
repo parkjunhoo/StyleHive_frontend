@@ -3,8 +3,8 @@
 }
 .container img{
   border: 1px solid rgba(34,34,34,.1);
-  -o-object-fit: contain;
-  object-fit: contain;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 .contentImage {
   width: 100%;
