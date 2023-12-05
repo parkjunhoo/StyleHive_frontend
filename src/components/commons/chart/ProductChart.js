@@ -1,10 +1,11 @@
 import styles from './ProductChart.module.css';
 import ApexChart from 'react-apexcharts';
 
-function ProductChart({}) {
+function ProductChart({height}) {
   return (
     <div className={styles.container}>
       <ApexChart
+          height={height}
           type="line"
           series= {[
            	 { name: "Price", data:[1000, 800, 3000, 2900]},

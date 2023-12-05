@@ -1,9 +1,19 @@
 .container {
-
+  
 }
-
+.titleContainer {
+  display: flex;
+}
 .titleText {
   font-size: 17px;
   font-weight: 600;
   margin: 16px 0;
+}
+.moreText {
+  margin: 16px 0;
+  line-height: 17px;
+  margin-left: auto;
+  font-size: 13px;
+  color: rgba(34,34,34,.5);
+  cursor: pointer;
 }

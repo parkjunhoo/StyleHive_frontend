@@ -1,0 +1,25 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  width:fit-content;
+  height:20px;
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-color: #F4F4F4;
+  color: #828B9D;
+}
+
+.iconContainer {
+  width:12px;
+  height:12px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.container p {
+  font-size: 10px;
+  font-weight: inherit;
+  color: inherit;
+}

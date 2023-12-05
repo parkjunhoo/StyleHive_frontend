@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  width: 100%;
+}
+
+.container>* {
+  width: 18%;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}

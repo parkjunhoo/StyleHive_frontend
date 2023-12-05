@@ -29,7 +29,7 @@ function QuoteInfo() {
     <div className={styles.container}>
       <p className={styles.titleText}>시세</p>
       <BasicTab tabs={tabs}/>
-      <ProductChart />
+      <ProductChart height={200}/>
       <BasicTab tabs={tabs2}/>
       <PriceLogTable />
       <BasicButton style={{height: "40px",}}>

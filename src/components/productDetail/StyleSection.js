@@ -39,8 +39,6 @@ function StyleSection() {
     getCats();
   }, []);
 
-  console.log(testData);
-
   return (
     <div>
       <div className={styles.container}>
