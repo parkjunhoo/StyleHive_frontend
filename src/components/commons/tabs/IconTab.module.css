@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.tabItem {
+  
+}
+
+.iconDiv {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.titleText {
+  color: rgb(51, 51, 51);
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    overflow: auto;
+  }
+
+  .titleText {
+    font-size: 12px;
+  }
+
+  .iconDiv {
+    width: 66px;
+    height: 66px;
+  }
+}

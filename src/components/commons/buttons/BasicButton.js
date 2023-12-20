@@ -1,10 +1,10 @@
 import styles from './BasicButton.module.css';
 
-function BasicButton({children ,style}) {
+function BasicButton({children ,style, className}) {
   return(
     <div
     style={style}
-    className={styles.container}>
+    className={styles.container +" "+ className}>
       {children}
     </div>
   );

@@ -1,5 +1,5 @@
-import Carousel from '../../components/commons/carousel/Carousel';
-import ProductMenu from '../productDetail/ProductMenu';
+import Carousel from '../commons/carousel/Carousel';
+import ProductMenu from './ProductMenu';
 import styles from './ProductInfo.module.css';
 
 function ProductInfo({info}) {

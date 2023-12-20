@@ -1,0 +1,87 @@
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  height: fit-content;
+  padding: 30px 40px 120px;
+  overflow-x: hidden;
+}
+
+.profileDiv {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.profileImg {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.followBtn {
+  background-color: #222222;
+  height: 35px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+.moreBtn {
+  border: 0;
+}
+.followBtnText {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.moreBtnText {
+  color: black;
+  padding: 0 3px;
+  letter-spacing: -2px;
+  font-weight: 900;
+}
+
+.btnDiv {
+  margin-left: auto;
+  display: flex;
+}
+
+.profileNameDiv {
+  margin-left: 12px;
+}
+
+.nameText {
+  font-size: 16px;
+}
+.timeText {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(181, 181, 181);
+}
+
+.tagText {
+  font-size: 15px;
+  font-weight: 400;
+  padding: 12px 0 8px;
+}
+
+.tagProductList {
+  display: flex;
+  list-style-type: none;
+  padding-inline-start: 0;
+  column-gap: 5%;
+}
+
+.tagProductList li{
+  width: 15%;
+  box-sizing: border-box;
+}
+
+.btnDiv {
+  margin: 20px 0;
+}
+
+.likeText {
+  font-size: 14px;
+  font-weight: 400;
+}

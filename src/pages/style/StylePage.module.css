@@ -1,0 +1,21 @@
+.contentContainer {
+  margin: 0 auto;
+  max-width: 1280px;
+  height: fit-content;
+  padding: 30px 40px 120px;
+  overflow-x: hidden;
+}
+
+.titleConainer {
+  width: 100%;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 16px 0;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .contentContainer {
+    padding:0;
+  }
+}

@@ -1,8 +1,10 @@
 import styles from './StyleCard.module.css';
 
-function StyleCard({imgSrc, userImgSrc, userId, likeCount, content}) {
+function StyleCard({imgSrc, userImgSrc, userId, likeCount, content, onClick}) {
   return (
-    <div className={styles.container}>
+    <div
+     onClick={onClick}
+     className={styles.container}>
         <img alt="" className={styles.contentImage} src={imgSrc} />
       <div className={styles.userContainer}>
           <img className={styles.userImg} alt="" src={userImgSrc} />

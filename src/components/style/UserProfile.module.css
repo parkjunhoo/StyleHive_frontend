@@ -1,0 +1,84 @@
+.container {
+}
+
+.infoDiv {
+  display: flex;
+}
+
+.userImage {
+  width: 150px;
+  height: 150px;
+  margin-right: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userImage>img {
+  width: 100%;
+  height: 100%;
+}
+
+.userInfo {
+  margin: auto 0;
+}
+
+.userName {
+  display: flex;
+}
+.userNameText {
+  font-size: 28px;
+  font-weight: 400;
+  margin-right: 15px;
+}
+
+.followInfo {
+  margin: 20px 0;
+  display: flex;
+}
+
+.followBtn {
+  background-color: black;
+  height: 34px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+.followBtnText {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.followerText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.followerNum {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.vertLine {
+  align-self: center;
+  width: 1px;
+  height: 14px;
+  background-color: rgb(227, 227, 227);
+  margin: 0 12px;
+}
+
+.userSummText {
+  font-size: 14px;
+  font-weight: 600;
+}
+.userSubText {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.moreBtnText {
+  color: rgb(152, 152, 152);
+  padding: 0 3px;
+}
