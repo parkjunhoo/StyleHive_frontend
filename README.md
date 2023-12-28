@@ -1,1 +1,2 @@
 
+StyleHive Frontend project
