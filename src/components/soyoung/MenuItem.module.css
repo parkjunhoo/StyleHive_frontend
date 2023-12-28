@@ -1,0 +1,15 @@
+.main_item {
+  display: inline-block;
+  margin: 1rem 0 0 0;
+}
+.main_item .main_item__box {
+  width: 13rem;
+  height: 6rem;
+  display: block;
+  background: #e4e4e4;
+  border-radius: 10%;
+}
+.main_item a {
+  color: #111;
+  font-size: 0.8rem;
+}

@@ -1,0 +1,29 @@
+.main_banner {
+  width: 100%;
+  background: #e4e4e4;
+  height: 50vh;
+  background-size: cover;
+  background-position: 30% 30%;
+  position: relative;
+}
+/* 화살표 적용배너/안적용배너 나누기 */
+.main_banner .left_arrow {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0ibm9uZSI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTUwIDYwIDMwIDQwbDIwLTIwIi8+PC9zdmc+)
+    no-repeat center;
+  transform: translateY(-50%);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 64px;
+  width: 64px;
+}
+.main_banner .right_arrow {
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0ibm9uZSI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0ibTMwIDIwIDIwIDIwLTIwIDIwIi8+PC9zdmc+)
+    no-repeat center;
+  transform: translateY(-50%);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: 64px;
+  width: 64px;
+}

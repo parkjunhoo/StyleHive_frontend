@@ -1,0 +1,31 @@
+.checkbox {
+  margin: 0.2rem 0 0.2rem 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.cate__title {
+  font-size: 0.9rem;
+}
+.cate__button {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.5rem 0 0;
+  background-color: white;
+  border: rgba(34, 34, 34, 0.5) 1px solid;
+}
+
+.select {
+  position: relative;
+  /* background-color: pink; */
+}
+.select::after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  font-size: 1.3rem;
+  color: green;
+  font-weight: bold;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}

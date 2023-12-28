@@ -1,0 +1,112 @@
+/* ProductItem.css */
+
+.product-item {
+  text-align: center;
+  width: 277px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  max-height: 277px;
+  border-radius: 10px;
+  background-color: #F6EEED;
+}
+
+.product-rank {
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute;
+  background-color: #222222;
+  color: #ffffff;
+  padding: 9px; 
+  z-index: 1;
+  border-radius: 5px;
+  width: 10px;
+  height: 10px;
+  top: 6px;
+  left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  padding: 4px 0;
+}
+
+.product-details {
+  flex-grow: 1;
+}
+
+.brand-name {
+  align-items: center;
+  color: #333;
+  display: flex;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -.07px;
+  line-height: 16px;
+}
+
+.product-name-english {
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 13px;
+  line-height: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-name-korean {
+  color: rgba(34, 34, 34, 0.5);
+  font-size: 11px;
+  line-height: 13px;
+  margin-top: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product-price {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  margin-top: 20px;
+}
+
+.buy-now {
+  color: rgba(34, 34, 34, 0.5);
+  font-size: 11px;
+  line-height: 13px;
+  margin-top: 2px;
+}
+
+.product-stats {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  column-gap: 12px;
+}
+
+.product-stats div {
+  display: flex;
+  align-items: center;
+  color: rgba(34, 34, 34, 0.5);
+  font-size: 12px;
+  letter-spacing: -0.06px;
+}
+
+.product-stats img {
+  width: 14px;
+  height: 16px;
+  margin-right: 4px;
+}

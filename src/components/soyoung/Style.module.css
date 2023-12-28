@@ -1,0 +1,33 @@
+.style {
+  display: inline-block;
+  margin: 1rem 0 0 0;
+}
+.style_image {
+  width: 11rem;
+  height: 15rem;
+  display: block;
+  background: #e4e4e4;
+  border-radius: 5%;
+  position: relative;
+}
+.style_nickname {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+.style_profile {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  background: #e4e4e4;
+  border: 2px white solid;
+  border-radius: 50%;
+  margin: 0.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

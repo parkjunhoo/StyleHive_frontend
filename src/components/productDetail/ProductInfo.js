@@ -6,23 +6,26 @@ function ProductInfo({info}) {
   return(
     <div className={styles.columnWarpper}>
       <div className={styles.leftContent}>
-        <Carousel style={{
-          position: "sticky",
-          top:"30px",
-          border: "1px solid #ebebeb"}} className={styles.productCarousel}>
-          {info.thumbnail.map((url, i) =>(
-            <div key={i} style={{
-              backgroundImage: `url(${url})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-            }}>
-            </div>
-          ))}
-        </Carousel>
+        {info && info.productImgList ?
+          <Carousel style={{
+            position: "sticky",
+            top:"30px",
+            border: "1px solid #ebebeb"}} className={styles.productCarousel}>
+            {info.productImgList.map((i, idx) =>(
+              <div key={idx} style={{
+                backgroundImage: `url(${i.productImgStore})`,
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+              }}>
+              </div>
+            ))}
+          </Carousel>
+        : null}
+        
       </div>
       <div className={styles.rightContent}>
-        <ProductMenu />
+        <ProductMenu info={info} />
       </div>
     </div>
   );

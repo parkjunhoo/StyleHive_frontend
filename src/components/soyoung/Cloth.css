@@ -1,0 +1,21 @@
+.product__ranking {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: block;
+  background: black;
+  border-radius: 20%;
+  margin: 0.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.product__ranking:first-of-type {
+  background-color: #333;
+}
+.product__ranking a {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  vertical-align: middle;
+  text-align: center;
+}

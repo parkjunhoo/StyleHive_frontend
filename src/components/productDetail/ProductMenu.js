@@ -7,6 +7,7 @@ import BrandButton from './BrandButton';
 import QuoteInfo from './QuoteInfo';
 import { DisplayTable , IconTableItem } from './DisplayTable';
 import styles from './ProductMenu.module.css';
+import { intToWon, simpleDateFormat } from '../../utils/StringUtil';
 
 import icon from '../../assets/images/jordan.webp';
 import icon2 from '../../assets/images/info1.png';
@@ -21,19 +22,19 @@ function ProductMenu({info}) {
     },
     {
     title: "발매가",
-    value: "189,000원",
+    value: intToWon(info.productRelease),
     },
     {
       title: "모델번호",
-      value: "DM7866-123",
+      value: info.productModelNum,
     },
     {
       title: "출시일",
-      value: "22/12/12",
+      value: simpleDateFormat(info.productDate),
     },
     {
       title: "대표 색상",
-      value: "Black",
+      value: info.productColor,
     },
     ];
 
@@ -44,8 +45,8 @@ function ProductMenu({info}) {
         <p className={styles.priceText}>120,000원</p>
       </div>
       <div className={styles.titleContainer}>
-        <p className={styles.titleText}>Jordan 1 x Travis Scott Retro Low OG SP Sail and Ridgerock</p>
-        <p className={styles.titleSubText}>조던 1 x 트래비스 스캇 레트로 로우 OG SP 세일 앤 리저록</p>
+        <p className={styles.titleText}>{info.productEngName}</p>
+        <p className={styles.titleSubText}>{info.productKorName}</p>
       </div>
       <SelectButton text={"모든 사이즈"}/>
       <DetailBox details={details}/>

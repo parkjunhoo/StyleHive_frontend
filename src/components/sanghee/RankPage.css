@@ -1,0 +1,51 @@
+/* RankPage.css */
+
+.rp_container {
+  max-width: 1150px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  margin-top: 120px; /* nav와의 거리를 늘리는 부분 */
+  margin-bottom: 160px; /* footer와의 거리를 늘리는 부분 */
+}
+
+.rank-page {
+  text-align: center;
+}
+
+.rank-page h2 {
+  font-size: 20px;
+  padding-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  column-gap: 13px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-bottom: 56px;
+  padding-left: 0;
+  padding-right: 0;
+  row-gap: 56px;
+}
+
+.share-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.share-button {
+  background: #fff;
+  border: 1px solid #d3d3d3;
+  border-radius: 100px;
+  color: #222;
+  font-size: 18px;
+  font-weight: 400;
+  height: 60px;
+  width: 260px;
+}

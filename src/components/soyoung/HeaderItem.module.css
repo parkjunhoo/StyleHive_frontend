@@ -1,0 +1,8 @@
+.header_item {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin: 0 1.5rem 0 0;
+}
+.header_item a {
+  text-decoration: none;
+}

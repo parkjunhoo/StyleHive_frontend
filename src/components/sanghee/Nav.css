@@ -1,0 +1,56 @@
+/* Nav.css */
+
+nav {
+  width: 20%;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #000;
+  font-size: 32px;
+  letter-spacing: -0.48px;
+  padding-bottom: 25px;
+  text-transform: uppercase;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.keyword {
+  text-decoration: none;
+}
+
+li:first-child {
+  margin-top: 0px;
+}
+
+/* 선택된 li에 대한 스타일 */
+li.selected a {
+  font-weight: 700;
+  color: #222;
+}
+
+/* 선택 안된 li에 대한 스타일 */
+li:not(.selected) a {
+  color: rgba(34, 34, 34, 0.5);
+  letter-spacing: -0.15px;
+  line-height: 18px;
+}
