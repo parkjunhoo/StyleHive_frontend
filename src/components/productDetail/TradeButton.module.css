@@ -5,6 +5,7 @@
   margin: 5px;
   align-items: center;
   border-radius: 10px;
+  cursor: pointer;
 } 
 .verticalLine {
   width: 1px;
