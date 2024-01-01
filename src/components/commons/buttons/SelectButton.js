@@ -1,8 +1,10 @@
 import styles from './SelectButton.module.css';
 
-function SelectButton({text}) {
+function SelectButton({ text, onClick }) {
   return (
-    <div className={styles.container}>
+    <div
+     onClick={onClick ? onClick : null}
+     className={styles.container}>
       <p>{text}</p>
       <p className={styles.btn}>▼</p>
     </div>

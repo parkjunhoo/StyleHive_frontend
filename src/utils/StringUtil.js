@@ -4,9 +4,10 @@ function intToWon(num) {
 
 function simpleDateFormat(date) {
   const newDate = new Date(date);
-  const year = newDate.getFullYear().toString().slice(-2);
-  const month = (newDate.getMonth()+1).toString();
-  let day = newDate.getDate().toString();
+  const year = newDate.getUTCFullYear().toString().slice(-2);
+  let month = (newDate.getUTCMonth()+1).toString();
+  month = month.length > 1 ? month : '0' + month;
+  let day = newDate.getUTCDate().toString();
   day = day.length > 1 ? day : '0' + day;
 
   return `${year}/${month}/${day}`;

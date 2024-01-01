@@ -1,14 +1,6 @@
 import styles from './PriceLogTable.module.css';
 
-function PriceLogTable() {
-  const exData = [
-    {size: 280, price:"3000", date:"23/12/05"},
-    {size: 270, price:"2800", date:"23/12/04"},
-    {size: 230, price:"1500", date:"23/12/04"},
-    {size: 250, price:"2000", date:"23/12/03"},
-    {size: 275, price:"3200", date:"23/12/01"},
-  ]
-
+function PriceLogTable({info, sizeList, contentTitleArr}) {
   return(
     <div className={styles.container}>
       <table className={styles.table}>
@@ -20,17 +12,17 @@ function PriceLogTable() {
         <thead>
           <tr>
             <th>옵션</th>
-            <th style={{textAlign:"right"}}>거래가</th>
-            <th style={{textAlign:"right"}}>거래일</th>
+            <th style={{textAlign:"right"}}>{contentTitleArr[0]}</th>
+            <th style={{textAlign:"right"}}>{contentTitleArr[1]}</th>
           </tr>
         </thead>
         <tbody>
-          {exData.map(({size,price,date},idx)=>{
+          {info.map((i,idx)=>{
             return(
               <tr key={idx}>
-                <td>{size}</td>
-                <td style={{textAlign:"right"}}>{price}원</td>
-                <td style={{textAlign:"right"}}>{date}</td>
+                <td>{sizeList.find(s=>s.productSizeId === i.productSizeId).productSizeValue}</td>
+                <td style={{textAlign:"right"}}>{i.firstContent}</td>
+                <td style={{textAlign:"right"}}>{i.secondContent}</td>
               </tr>
             );
           })}
