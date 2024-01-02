@@ -16,7 +16,6 @@ function ProductChart({height, info}) {
       }
      });
   }
-  console.log(chartData);
   
   return (
     <div className={styles.container}>
