@@ -19,8 +19,11 @@ import icon4 from '../../assets/images/info3.png';
 function ProductMenu({info}) {
   const [pickSize, setPickSize] = useState(0);
   const [dealList, setDealList] = useState([]);
-  const [sizePopupOption, setSizePopupOption] = useState([{action:()=>{}, title:"size", value:"0"}]);
+  const [sizePopupOption, setSizePopupOption] = useState([]);
   const [sizePopupFlag, setSizePopupFlag] = useState(false);
+  const [wishPopupOption, setWishPopupOption] = useState([]);
+  const [wishPopupFlag, setWishPopupFlag] = useState(false);
+  const [wishSelectList, setWishSelectList] = useState([]);
   const [sizeButtonText, setSizeButtonText] = useState("모든 사이즈");
   const [nowBuyPrice, setNowBuyPrice] = useState("0원");
   const [nowSellPrice, setNowSellPrice] = useState("0원");
@@ -52,6 +55,40 @@ function ProductMenu({info}) {
   ];
   const [details, setDetails] = useState(detail);
   const pickedBlockStyle = {border:"1px solid black", fontWeight:"700"};
+
+  useEffect(() => {
+    const onWishPopupButtonClick = (productSizeId) => {
+      setWishSelectList(p => {
+        if (p.includes(productSizeId)) {
+          return p.filter(i => i !== productSizeId);
+        } else {
+          return [...p, productSizeId];
+        }
+      });
+    };
+  
+    const wishPopupOptions = info.productSizeList.map(({ productSizeId, productSizeValue }) => ({
+      value: productSizeValue,
+      action: () => onWishPopupButtonClick(productSizeId),
+      productSizeId: productSizeId,
+    }));
+  
+    setWishPopupOption(wishPopupOptions);
+  }, []);
+
+  useEffect(()=>{
+    if (wishPopupOption.length > 0) {
+      const wishOptions = [...wishPopupOption];
+      wishOptions.forEach((i)=>{
+        if (wishSelectList.find(s=> s === i.productSizeId)) {
+          i.blockStyle = pickedBlockStyle;
+        } else {
+          i.blockStyle = null;
+        }
+      });
+      setWishPopupOption(wishOptions);
+    }
+  },[wishSelectList])
 
   useEffect(()=>{
     let buyTenderList = _.cloneDeep(info.productTenderList);
@@ -126,6 +163,7 @@ function ProductMenu({info}) {
   return (
     <div>
       {sizePopupFlag ? <BlockSelectPopup title={"사이즈"} options={sizePopupOption} closeAction={()=>{setSizePopupFlag(false)}}/> : null}
+      {wishPopupFlag ? <BlockSelectPopup title={"관심 상품 저장"} options={wishPopupOption} closeAction={()=>{setWishPopupFlag(false)}}/> : null}
       <div className={styles.priceContainer}>
         <p className={styles.priceSubText}>즉시 구매가</p>
         <p className={styles.priceText}>120,000원</p>
@@ -148,7 +186,9 @@ function ProductMenu({info}) {
         color={"rgb(65, 185, 121)"}
         desc={"즉시 판매가"}/>
       </div>
-      <BasicButton style={{height: "60px",}}>
+      <BasicButton 
+        onClick={()=>{setWishPopupFlag(true)}}
+        style={{height: "60px",}}>
         <p style={{
           color: "#333",
           fontSize: "15px",

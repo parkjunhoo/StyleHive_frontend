@@ -13,7 +13,7 @@ function ProductInfo({info}) {
             border: "1px solid #ebebeb"}} className={styles.productCarousel}>
             {info.productImgList.map((i, idx) =>(
               <div key={idx} style={{
-                backgroundImage: `url(${i.productImgStore})`,
+                backgroundImage: `url(${i.imgThumbUrl})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
