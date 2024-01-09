@@ -9,7 +9,7 @@ import QuoteInfo from './QuoteInfo';
 import BlockSelectPopup from './BlockSelectPopup';
 import { DisplayTable , IconTableItem } from './DisplayTable';
 import styles from './ProductMenu.module.css';
-import { intToWon, simpleDateFormat } from '../../utils/StringUtil';
+import { intToWon, simpleDateFormat, getImageApi } from '../../utils/StringUtil';
 import { useState, useEffect } from 'react';
 
 import icon2 from '../../assets/images/info1.png';
@@ -166,7 +166,7 @@ function ProductMenu({info}) {
       {wishPopupFlag ? <BlockSelectPopup title={"관심 상품 저장"} options={wishPopupOption} closeAction={()=>{setWishPopupFlag(false)}}/> : null}
       <div className={styles.priceContainer}>
         <p className={styles.priceSubText}>즉시 구매가</p>
-        <p className={styles.priceText}>120,000원</p>
+        <p className={styles.priceText}>{nowBuyPrice}</p>
       </div>
       <div className={styles.titleContainer}>
         <p className={styles.titleText}>{info.productEngName}</p>
@@ -202,7 +202,7 @@ function ProductMenu({info}) {
       </BasicButton>
       <AddInfo />
       <BrandButton
-      iconSrc={info.brand.productBrandImg}
+      iconSrc={getImageApi(info.brand.productBrandImg)}
       name={info.brand.productBrandEngName} subName={info.brand.productBrandKorName}/>
       <div style={{backgroundColor:"#7777a59e", width:"100%", height:"80px", margin:"15px 0"}}>
         Banner
@@ -216,7 +216,7 @@ function ProductMenu({info}) {
           iconSrc={icon2}
           iconSize={26}
           title="100% 정품 보증"
-          desc="KREAM에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다."
+          desc="StyleHive에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다."
         />
         <IconTableItem
           iconSrc={icon3}
@@ -228,7 +228,7 @@ function ProductMenu({info}) {
           iconSrc={icon4}
           iconSize={26}
           title="정품 인증 패키지"
-          desc="검수에 합격한 경우에 한하여 KREAM의 정품 인증 패키지가 포함된 상품이 배송됩니다."
+          desc="검수에 합격한 경우에 한하여 StyleHive의 정품 인증 패키지가 포함된 상품이 배송됩니다."
         />
       </DisplayTable>
     </div>

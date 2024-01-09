@@ -1,6 +1,7 @@
 import Carousel from '../commons/carousel/Carousel';
 import ProductMenu from './ProductMenu';
 import styles from './ProductInfo.module.css';
+import {getImageApi} from '../../utils/StringUtil';
 
 function ProductInfo({info}) {
   return(
@@ -13,7 +14,7 @@ function ProductInfo({info}) {
             border: "1px solid #ebebeb"}} className={styles.productCarousel}>
             {info.productImgList.map((i, idx) =>(
               <div key={idx} style={{
-                backgroundImage: `url(${i.imgThumbUrl})`,
+                backgroundImage: `url(${getImageApi(i.imgThumbUrl)})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',

@@ -1,14 +1,18 @@
 import { useEffect, useState, useRef } from 'react';
 import styles from './LineTab.module.css';
 
-function LineTab({ tabs , style}) {
-  const [index, setIndex] = useState(0);
+function LineTab({ tabs, style, firstIndex}) {
+  const [index, setIndex] = useState(firstIndex);
   const thisNode = useRef(null);
 
   const onClickTab = (e, idx) => {
     thisNode.current.scrollLeft = e.target.offsetLeft - (thisNode.current.offsetWidth/2.5);
     setIndex(idx);
   };
+
+  useEffect(()=>{
+    setIndex(firstIndex);
+  },[firstIndex])
 
   return(
     <ul 
@@ -38,4 +42,7 @@ function LineTab({ tabs , style}) {
   );
 }
 
+LineTab.defaultProps = {
+  firstIndex: 0,
+}
 export default LineTab;

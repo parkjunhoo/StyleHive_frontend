@@ -2,10 +2,17 @@ import styles from './StylePage.module.css';
 import LineTab from '../../components/commons/tabs/LineTab';
 import IconTab  from '../../components/commons/tabs/IconTab';
 import StyleList from '../../components/style/StyleList';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { scrollToTop } from '../../utils/Util';
+import axios from 'axios';
 
 function StylePage() {
   const nav = useNavigate();
+  const { cate } = useParams();
+  const [tabIdx, setTabIdx] = useState(1);
+  const [page, setPage] = useState(1);
+  const [commData, setCommData] = useState([]);
 
   const tabs = [
     {
@@ -47,60 +54,72 @@ function StylePage() {
   ];
 
   const tabs2 = [
-    {
-      title: "아우터매치",
-      action: ()=> nav("/style/outermatch"),
-      color: "rgb(239, 98, 83)"
-    },
+    // {
+    //   title: "아우터매치",
+    //   link: "outermatch",
+    //   action: ()=> nav("/style/outermatch"),
+    //   color: "rgb(239, 98, 83)",
+    // },
     {
       title: "팔로잉",
-      action: ()=>nav("/style/follow")
+      link: "follow",
+      action: ()=>nav("/style/follow"),
     },
-    {
-      title: "발견",
-      action: ()=>nav("/style/find")
-    },
+    // {
+    //   title: "발견",
+    //   link: "find",
+    //   action: ()=>nav("/style/find"),
+    // },
     {
       title: "랭킹",
-      action: ()=>nav("/style/rank")
-    },
-    {
-      title: "윈터스트릿",
-      action: ()=>nav("/style/winterstreet")
-    },
-    {
-      title: "트렌드",
-      action: ()=>nav("/style/trend")
-    },
-    {
-      title: "셀럽스타일",
-      action: ()=>nav("/style/celebrity")
+      link: "rank",
+      action: ()=>nav("/style/rank"),
     },
     {
       title: "스니커즈",
-      action: ()=>nav("/style/sneakers")
-    },
-    {
-      title: "럭셔리",
-      action: ()=>nav("/style/luxury")
+      link: "sneakers",
+      action: ()=>nav("/style/sneakers"),
     },
     {
       title: "의류",
-      action: ()=>nav("/style/cloth")
+      link: "cloth",
+      action: ()=>nav("/style/cloth"),
     },
     {
       title: "가방",
-      action: ()=>nav("/style/bag")
-    },
-    {
-      title: "컬렉터블",
-      action: ()=>nav("/style/collectable")
+      link: "bag",
+      action: ()=>nav("/style/bag"),
     },
     {
       title: "액세서리",
-      action: ()=>nav("/style/accessory")
+      link: "accessory",
+      action: ()=>nav("/style/accessory"),
     },
   ];
+
+  const getCommData = async (cate, page) => {
+    const res = await axios.get(`http://localhost:8080/api/community/pcate/${cate}/8/${page}`);
+    setCommData(p=>[...p,...res.data.commList]);
+  }
+
+  useEffect(()=>{
+    const idx = tabs2.indexOf(tabs2.find(({link})=> cate === link));
+    setTabIdx(idx);
+    scrollToTop();
+  },[])
+
+  useEffect(()=>{
+    scrollToTop();
+    switch(cate) {
+      case 'sneakers':
+        getCommData(1,page);
+        break;
+
+      default:
+        break;
+    }
+
+  },[cate]);
 
   return(
     <div className={styles.contentContainer}>
@@ -108,8 +127,12 @@ function StylePage() {
         STYLE
       </div>
       <LineTab 
+        firstIndex={tabIdx}
         style={{
           borderBottom: "1px solid #f0f0f0",
+          position: "fixed",
+          top:"100px",
+          backgroundColor: "white",
         }}
         tabs={tabs2}/>
       <IconTab
@@ -117,7 +140,7 @@ function StylePage() {
           borderBottom: "1px solid #f0f0f0",
         }}
        tabs={tabs}/>
-       <StyleList isObserver={true} />
+       <StyleList data={commData}/>
     </div>
   );
 }

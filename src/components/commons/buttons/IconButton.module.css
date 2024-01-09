@@ -1,0 +1,9 @@
+.container {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.container > img {
+  height: 100%;
+  width: 100%;
+}

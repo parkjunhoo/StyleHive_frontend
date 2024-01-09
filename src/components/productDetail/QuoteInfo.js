@@ -31,7 +31,7 @@ function QuoteInfo({info, sizeList}) {
       setDealInfo(info[0]);
     }
 
-    if(optionTabIndex == 0) {
+    if(optionTabIndex === 0) {
       setContentTitleArr(["거래가","거래일"]);
       setLogInfo(info[0].map(i=>{
         return {
@@ -44,7 +44,7 @@ function QuoteInfo({info, sizeList}) {
       setContentTitleArr([optionTabIndex === 1 ? "판매 입찰" : "구매 입찰", "수량"]);
       const newData = Object.values(info[optionTabIndex].reduce((a, {tenderPrice, productSizeId}) => {
         if(!a[tenderPrice]) {
-          a[tenderPrice] = {firstContent: tenderPrice , secondContent: 1, productSizeId:productSizeId};
+          a[tenderPrice] = {firstContent: intToWon(tenderPrice) , secondContent: 1, productSizeId:productSizeId};
         } else {
           a[tenderPrice].secondContent++;
         }
