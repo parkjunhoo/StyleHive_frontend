@@ -1,10 +1,10 @@
-import ProductInfo from '../../components/productdetail/ProductInfo';
+import ProductInfo from '../../components/productDetail/ProductInfo';
 import styles from './ProductDetail.module.css';
-import SizeInfo from '../../components/productdetail/SizeInfo';
-import ProductDetailSection from '../../components/productdetail/ProductDetailSection';
-import StyleSection from '../../components/productdetail/StyleSection';
+import SizeInfo from '../../components/productDetail/SizeInfo';
+import ProductDetailSection from '../../components/productDetail/ProductDetailSection';
+import StyleSection from '../../components/productDetail/StyleSection';
 import ProductCard from '../../components/commons/card/ProductCard';
-import ProductListGrid from '../../components/productdetail/ProductListGrid';
+import ProductListGrid from '../../components/productDetail/ProductListGrid';
 import { FastDelBadge, ProductBadge } from '../../components/commons/badge/ProductBadge';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
