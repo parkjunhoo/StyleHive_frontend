@@ -27,7 +27,7 @@ function ProductDetail() {
   }
   
   const getStyleData = async () => {
-    const res = await axios.get(`http://localhost:8080/api/community/pid/${productId}/8`);
+    const res = await axios.get(`http://localhost:8080/api/community/pid/${productId}/8/1`);
     if(res.data.count > 0) setStyleData(res.data.commList);
     else setStyleData(null);
     setStyleCount(res.data.count);
@@ -56,7 +56,7 @@ function ProductDetail() {
       {productData ? <SizeInfo/> : null}
       {styleData ? 
       <ProductDetailSection title={`스타일 ${styleCount}`}>
-        <StyleSection data={styleData}/>
+        <StyleSection data={styleData} pid={productId}/>
       </ProductDetailSection> : null}
       
       <hr style={{background: "#ebebeb", height: "1px", border:"0", margin: "25px 0"}}></hr>

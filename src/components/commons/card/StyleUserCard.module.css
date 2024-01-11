@@ -1,0 +1,58 @@
+.container {
+}
+
+.userInfoDiv {
+  display: flex;
+  align-items: center;
+}
+.postDiv {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  height: 250px;
+}
+.postDiv > div {
+  flex-basis: 33%;
+  margin: 0 5px;
+}
+
+.rankText {
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 8px;
+  text-align: center;
+}
+.userPhoto {
+  height: 45px;
+  width: 45px;
+  border: 1px solid rgba(34,34,34,.1);
+  border-radius: 50%;
+  margin: 0 15px;
+  object-fit: contain;
+}
+.userIdText {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -.33px;
+}
+.followerText {
+  color: rgba(34,34,34,.5);
+  font-size: 12px;
+  line-height: 1.1666666667;
+  margin-top: 2px;
+}
+
+.followBtn {
+  background-color: #222222;
+  width: 60px;
+  height: 35px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+.followBtnText {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}

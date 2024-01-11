@@ -2,6 +2,7 @@ import ProductDetail from "./pages/product/ProductDetail";
 import StylePage from "./pages/style/StylePage";
 import StyleUser from "./pages/style/StyleUser";
 import StylePost from "./pages/style/StylePost";
+import StyleProduct from "./pages/style/StyleProduct";
 
 import HeaderMain from "./pages/HeaderMain";
 import Footer from "./pages/Foot";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/style/:cate" element={<StylePage />}></Route>
           <Route path="/style/user/:id" element={<StyleUser />}></Route>
           <Route path="/style/post/:id" element={<StylePost />}></Route>
+          <Route path="/style/product/:id" element={<StyleProduct />}></Route>
           <Route path="/" element={<Recommend />} />
           <Route path="/lank" element={<Rank />} />
           <Route path="/luxury" element={<h1>luxury</h1>} />
