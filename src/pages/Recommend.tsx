@@ -7,8 +7,18 @@ import MenuItems from "../components/soyoung/MenuItems";
 import Banner from "../components/soyoung/Banner";
 import Button from "../components/soyoung/Button";
 import Styles from "../components/soyoung/Styles";
+import axios from "axios";
+import { useEffect } from "react";
+
+const [data, setData] = useEffect(null);
+async function fatchTest() {
+  await axios.get("http://localhost:8080/pushtest").than((res) => {
+    setData(res.data);
+  });
+}
 
 function Recommend() {
+  console.log(data)
   return (
     <>
       <MainBanner />
