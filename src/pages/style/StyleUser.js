@@ -26,7 +26,7 @@ function StyleUser() {
           padding: "0",
         }} 
         tabs={tabs}/>
-      <StyleList isObserver={true} />
+      <StyleList data={[]}/>
     </div>
   )
 }

@@ -11,7 +11,7 @@ function StyleSection({data}) {
     <div>
       <div 
        className={styles.container}>
-        {data.map(({commNo, imgList, userImg, userId, likeCount, commContents},idx)=>{
+        {data.map(({commNo, imgList, userImg, userId, likeCount, commTitle, commContents},idx)=>{
           return(
             <StyleCard
               key={idx}
@@ -19,6 +19,7 @@ function StyleSection({data}) {
               userImgSrc={userImg}
               userId={userId}
               likeCount={likeCount}
+              title={commTitle}
               content={commContents}
               onClick={()=>nav(`/style/post/${commNo}`)}
               multiple={imgList.length > 1 ? true : false}

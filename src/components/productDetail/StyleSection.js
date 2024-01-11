@@ -1,11 +1,12 @@
 import StyleList from "../style/StyleList";
 import BasicButton from "../commons/buttons/BasicButton";
 
-function StyleSection({data}) {
+function StyleSection({data, pid}) {
   return(
     <div>
       <StyleList data={data} />
       <BasicButton
+        onClick={()=>{window.location.href=`/style/product/${pid}`}}
         style={{
           width: "fit-content",
           padding: "10px 30px",
