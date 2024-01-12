@@ -85,7 +85,16 @@ function StylePost() {
           <IconButton iconSrc={commentIcon} style={{marginLeft:"15px"}}/>
           <IconButton iconSrc={shareIcon} style={{marginLeft:"auto"}}/>
         </div>
-        <p className={styles.likeText}>좋아요 <strong>{postData.likeCount}</strong>개</p>
+          <p className={styles.likeText}>좋아요 <strong>{postData.likeCount}</strong>개</p>
+          <p className={styles.titleText}>{postData.commTitle}</p>
+          <p className={styles.contentText}>{postData.commContents}</p>
+          <div className={styles.tagDiv}>
+            {postData.tagList.map((i,idx)=>{
+              return (
+                <p key={idx} className={styles.tagText}>#{i.tagName}</p>
+              )
+            })}
+          </div>
       </div>
       : <BasicSpiner />}
     </div>

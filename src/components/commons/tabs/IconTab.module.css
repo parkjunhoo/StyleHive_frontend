@@ -11,13 +11,23 @@
 }
 
 .iconDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  overflow: hidden;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  cursor: pointer;
+  box-shadow: 10px 5px 5px rgb(183, 183, 183);
+}
+
+.onlyText {
+  color: white;
+  font-size: 24px;
+  text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
 
 .titleText {

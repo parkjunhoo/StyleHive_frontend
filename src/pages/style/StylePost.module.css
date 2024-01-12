@@ -59,10 +59,26 @@
   color: rgb(181, 181, 181);
 }
 
+.tagDiv {
+  display: flex;
+}
+
 .tagText {
   font-size: 15px;
   font-weight: 400;
-  padding: 12px 0 8px;
+  margin: 3px;
+  color: #297dcb;
+  cursor: pointer;
+}
+.titleText {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+.contentText {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 5px 0;
 }
 
 .tagProductList {

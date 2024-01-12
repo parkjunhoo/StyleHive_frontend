@@ -3,5 +3,4 @@ function scrollToTop() {
     top: 0,
   });
 }
-
 export {scrollToTop};
