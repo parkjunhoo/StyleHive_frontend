@@ -3,7 +3,7 @@ import LineTab from '../../components/commons/tabs/LineTab';
 import IconTab  from '../../components/commons/tabs/IconTab';
 import StyleList from '../../components/style/StyleList';
 import StyleUserCard from '../../components/commons/card/StyleUserCard';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { scrollToTop } from '../../utils/Util';
 import axios from 'axios';
@@ -13,6 +13,7 @@ import StyleUser from './StyleUser';
 function StylePage() {
   const getSize = 5;
   const nav = useNavigate();
+  const location = useLocation();
   const { cate } = useParams();
   const prevCateRef = useRef(cate);
   const [tabIdx, setTabIdx] = useState(1);
@@ -22,6 +23,7 @@ function StylePage() {
   const loadingRef = useRef(loading);
   const [hasNext, setHasNext] = useState(true);
   const hasNextRef = useRef(hasNext);
+  const [bestTags, setBestTags] = useState([]);
 
   const target = useRef(null);
 
@@ -37,45 +39,6 @@ function StylePage() {
   const ob = new IntersectionObserver(obCallback, obOption);
 
   const tabs = [
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "패션템 챌린지",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "코트 VS 패딩",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "12월 코디",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "윈터스트릿",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "패딩룩",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "내일 뭐신지",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "데일리 슈즈",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "노스페이스",
-    },
-    {
-      iconSrc: "https://www.fitpetmall.com/wp-content/uploads/2023/10/230420-0668-1.png",
-      title: "겨울코디",
-    },
-  ];
-
-  const tabs2 = [
     // {
     //   title: "아우터매치",
     //   link: "outermatch",
@@ -119,6 +82,20 @@ function StylePage() {
     },
   ];
 
+  const getBestTagData = async () => {
+    const res = await axios.get(`http://localhost:8080/api/community/best-tag/5`);
+    const tagList = res.data;
+    
+    setBestTags(tagList.map((i)=>{
+      return (
+        {
+          title: i.tagName,
+          action: ()=>window.location.href=`/style/tag?tagId=${i.tagId}`,
+        }
+      )
+    }));
+  }
+
   const getCommData = async (cate, page) => {
     setLoading(true);
     const res = await axios.get(`http://localhost:8080/api/community/pcate/${cate}/${getSize}/${page}`);
@@ -145,6 +122,16 @@ function StylePage() {
     setLoading(false);
   }
 
+  const getByTagCommData = async (page) => {
+    setLoading(true);
+    const tagId = new URLSearchParams(location.search).get('tagId');
+    const res = await axios.get(`http://localhost:8080/api/community/tag/5/${page}?tagId=${tagId}`);
+    const comm = res.data.commList;
+    if(comm) setCommData(p=>[...p,...comm]);
+    setHasNext(res.data.hasNextPage);
+    setLoading(false);
+  }
+
   const getDataByCate = (page) => {
     switch(cate) {
       case 'sneakers':
@@ -167,14 +154,19 @@ function StylePage() {
         getRankData(page);
         break;
 
+      case 'tag':
+        getByTagCommData(page);
+        break;
+
       default:
         break;
     }
   }
 
   useEffect(()=>{
-    const idx = tabs2.indexOf(tabs2.find(({link})=> cate === link));
+    const idx = tabs.indexOf(tabs.find(({link})=> cate === link));
     setTabIdx(idx);
+    getBestTagData();
     scrollToTop();
 
     return () => {
@@ -224,14 +216,14 @@ function StylePage() {
           backgroundColor: "white",
           zIndex: "100",
         }}
-        tabs={tabs2}/>
+        tabs={tabs}/>
       {cate !== 'rank' ? 
       <div>
         <IconTab
           style={{
             borderBottom: "1px solid #f0f0f0",
           }}
-        tabs={tabs}/>
+        tabs={bestTags}/>
         {commData ? <StyleList data={commData}/> : null}
        </div>
        :
