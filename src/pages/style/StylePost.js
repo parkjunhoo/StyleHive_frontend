@@ -11,6 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {simpleDateFormat2} from '../../utils/StringUtil';
 import { scrollToTop } from "../../utils/Util";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import likeIcon from '../../assets/images/favorite.svg';
 import fillLikeIcon from '../../assets/images/fill-favorite.svg';
@@ -24,6 +25,7 @@ function StylePost() {
   const [commentHasNextPage, setCommentHasNextPage] = useState([false]);
   const [commentPage, setCommentPage] = useState(1);
   const [commentPopupState, setCommentPopupState] = useState(false);
+  const getCommentSize = 20;
 
   const getPostData = async () => {
     const res = await axios.get(`http://localhost:8080/api/community/${id}`);
@@ -31,9 +33,37 @@ function StylePost() {
   }
 
   const getCommentData = async (page) => {
-    const res = await axios.get(`http://localhost:8080/api/community/comment/${id}/20/${page}`);
-    setCommentData(res.data.mentList);
+    const res = await axios.get(`http://localhost:8080/api/community/comment/${id}/${getCommentSize}/${page}`);
+    setCommentData(p=>[...p, ...res.data.mentList]);
     setCommentHasNextPage(res.data.hasNextPage);
+  }
+
+  const regComment = async (content) => {
+    const comment = {
+      commNo: id,
+      userId: "test",
+      commMentContents: content,
+      commMentDate: new Date(),
+      commMentState: true,
+    };
+    const res = await axios.post("http://localhost:8080/api/community/comment/write",comment,
+    {"Content-Type": "application/json"});
+
+    if(res.data.message === "success") {
+      const res = await axios.get(`http://localhost:8080/api/community/comment/${id}/${getCommentSize*commentPage}/1`);
+      Swal.fire({
+        title: "등록 성공",
+        text: "댓글이 등록되었습니다.",
+        icon: "success"
+      });
+      setCommentData(res.data.mentList);
+    } else {
+      Swal.fire({
+        title: "등록 실패",
+        text: "댓글 등록에 실패했습니다.",
+        icon: "error"
+      });
+    }
   }
   const nav = useNavigate();
 
@@ -60,6 +90,7 @@ function StylePost() {
       <div>
         {commentPopupState ? <StyleCommentPopup
         onClose = {()=>{setCommentPopupState(false)}}
+        onReg = {regComment}
         data={commentData}
         authorId={postData.userId}
         authorImg={postData.userImg}
@@ -92,7 +123,7 @@ function StylePost() {
             return (
               <li>
                 <ProductCard
-                productId={productId}
+                  productId={productId}
                   key={idx}
                   img={imgUrl}
                   brand={productBrandEngName}
