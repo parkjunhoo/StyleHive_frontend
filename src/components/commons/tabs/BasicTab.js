@@ -1,8 +1,15 @@
 import styles from './BasicTab.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function BasicTab({tabs}) {
-  const [index, setIndex] = useState(0);
+function BasicTab({tabs, actionOnIdex, initIndex}) {
+  const initIdx = initIndex ? initIndex : 0;
+  const [index, setIndex] = useState(initIdx);
+
+  useEffect(()=>{
+    if(actionOnIdex) {
+      actionOnIdex(index);
+    }
+  },[index])
 
   return (
     <div className={styles.container}>

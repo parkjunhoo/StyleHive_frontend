@@ -1,6 +1,7 @@
 import styles from './StyleCard.module.css';
+import multipleIcon from '../../../assets/images/multiple.svg';
 
-function StyleCard({imgSrc, userImgSrc, userId, likeCount, content, onClick}) {
+function StyleCard({imgSrc, userImgSrc, userId, likeCount, content, onClick, multiple}) {
   return (
     <div
      onClick={onClick}
@@ -14,6 +15,11 @@ function StyleCard({imgSrc, userImgSrc, userId, likeCount, content, onClick}) {
       <div className={styles.contentContainer}>
         <p className={styles.contentText}>{content}</p>
       </div>
+      {multiple ? 
+      <div className={styles.multipleIconDiv}>
+        <img alt="multiple" className={styles.multipleIcon} src={multipleIcon} /> 
+      </div>
+      : null}
     </div>
   );
 }

@@ -41,7 +41,7 @@
   font-weight: 900;
 }
 
-.btnDiv {
+.postBtnDiv {
   margin-left: auto;
   display: flex;
 }
@@ -78,7 +78,8 @@
 }
 
 .btnDiv {
-  margin: 20px 0;
+  margin: 15px 0;
+  display: flex;
 }
 
 .likeText {

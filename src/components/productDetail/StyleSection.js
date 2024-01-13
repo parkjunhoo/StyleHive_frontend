@@ -1,10 +1,10 @@
 import StyleList from "../style/StyleList";
 import BasicButton from "../commons/buttons/BasicButton";
 
-function StyleSection() {
+function StyleSection({data}) {
   return(
     <div>
-      <StyleList />
+      <StyleList data={data} />
       <BasicButton
         style={{
           width: "fit-content",

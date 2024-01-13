@@ -1,14 +1,29 @@
 import styles from './ProductChart.module.css';
 import ApexChart from 'react-apexcharts';
+import { simpleDateFormat } from '../../../utils/StringUtil';
 
-function ProductChart({height}) {
+function ProductChart({height, info}) {
+
+  let chartData;
+
+  if(info.length === 1){
+    chartData = [{x:"2000-01-01T01:01:01.000+00:00", y:info[0].dealPrice},{x:info[0].dealDate, y:info[0].dealPrice}]
+  } else {
+    chartData = info.map(i=>{
+      return{
+        x:i.dealDate,
+        y:i.dealPrice,
+      }
+     });
+  }
+  
   return (
     <div className={styles.container}>
       <ApexChart
           height={height}
           type="line"
           series= {[
-           	 { name: "Price", data:[1000, 800, 3000, 2900]},
+           	 {data: chartData},
           ]}
           options={{
             theme: { mode: "Bootstrap" },
@@ -31,7 +46,6 @@ function ProductChart({height}) {
               labels: { show: false },
               axisTicks: { show: false },
               axisBorder: { show: false },
-              categories: [1660004640, 1660091040, 1660177440,1660177540],
               type: "date",
               tooltip: {
                 enabled: false,
@@ -43,11 +57,10 @@ function ProductChart({height}) {
             colors: ["#f27f73"],
             tooltip: {
               custom: function({series, seriesIndex, dataPointIndex, w}) {
-                var data = w.globals.initialSeries[seriesIndex].data[dataPointIndex];    
-                const date = new Date(w.globals.labels[dataPointIndex]).toLocaleDateString()
+                var data = w.globals.initialSeries[seriesIndex].data[dataPointIndex];
                 return `<div style="background-color:rgba(0,0,0,.8); text-align: center; padding:3px;">`+
-                          `<p style="font-size:11px; font-weight:400; color: white;">${date}</p>`+
-                          `<p style="font-size:11px; font-weight:400; color: white;">${data}원</p>` +
+                          `<p style="font-size:11px; font-weight:400; color: white;">${simpleDateFormat(data.x)}</p>`+
+                          `<p style="font-size:11px; font-weight:400; color: white;">${data.y}원</p>` +
                         `</div>`;
               }
             }

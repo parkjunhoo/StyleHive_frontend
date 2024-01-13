@@ -1,0 +1,57 @@
+.container {
+  height: 514px;
+  width: 480px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+  left: 50%;
+  top: 50%;
+  overflow: hidden;
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+.titleDiv {
+  display: flex;
+  justify-content: center;
+  padding: 18px 50px;
+}
+.titleText {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+}
+.exitBtn {
+  font-size: 18px;
+  font-weight: 700;
+  position: absolute;
+  left: 90%;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.blockLayout {
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.block {
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  display: inline-flex;
+  height: 52px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.blockTitleText {
+  font-size: 14px;
+}
+
+.blockValueText {
+  font-size: 12px;
+}

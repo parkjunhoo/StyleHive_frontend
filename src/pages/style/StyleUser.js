@@ -2,6 +2,7 @@ import styles from './StyleUser.module.css';
 import UserProfile from '../../components/style/UserProfile';
 import LineTab from "../../components/commons/tabs/LineTab";
 import StyleList from "../../components/style/StyleList";
+import { useEffect } from 'react';
 
 function StyleUser() {
 
