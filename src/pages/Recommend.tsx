@@ -8,17 +8,19 @@ import Banner from "../components/soyoung/Banner";
 import Button from "../components/soyoung/Button";
 import Styles from "../components/soyoung/Styles";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const [data, setData] = useEffect(null);
-async function fatchTest() {
-  await axios.get("http://localhost:8080/pushtest").than((res) => {
-    setData(res.data);
-  });
-}
+
 
 function Recommend() {
-  console.log(data)
+  const [data, setData] = useState(null);
+async function fatchTest() {
+  const res=await axios.get("/pushtest")
+  console.log(res.data);
+}
+  useEffect(()=>{
+    fatchTest();
+  },[])
   return (
     <>
       <MainBanner />
