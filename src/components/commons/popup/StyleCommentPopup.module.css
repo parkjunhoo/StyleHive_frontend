@@ -1,0 +1,87 @@
+.container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 420px;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,.1);
+  box-sizing: border-box;
+  height: 100%;
+  background-color: white;
+}
+
+.titleDiv {
+  display: flex;
+  padding: 30px 15px;
+  align-items: center;
+}
+
+.writeDiv {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  left: 0;
+  border: 1px solid rgba(34,34,34,.05);
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
+
+.userPhoto {
+  height: 35px;
+  width: 35px;
+  border: 1px solid rgba(34,34,34,.1);
+  border-radius: 50%;
+  margin: 0 15px;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+.closeBtn {
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.titleText {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.authorDiv {
+  display: flex;
+  padding:0 15px 25px 15px;
+  box-sizing: border-box;
+}
+
+.userIdText {
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.contentText {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.dateText {
+  margin-right: 8px;
+  color: rgba(34,34,34,.5);
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.popupHeader {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top:0;
+}
+
+.commListDiv {
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px 15px;
+}

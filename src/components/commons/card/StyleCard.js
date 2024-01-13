@@ -1,5 +1,6 @@
 import styles from './StyleCard.module.css';
 import multipleIcon from '../../../assets/images/multiple.svg';
+import defaultUserImg from '../../../assets/images/null-user.png';
 
 function StyleCard({imgSrc, userImgSrc, userId, likeCount,title, content, onClick, multiple}) {
   return (
@@ -8,7 +9,7 @@ function StyleCard({imgSrc, userImgSrc, userId, likeCount,title, content, onClic
      className={styles.container}>
         <img alt="" className={styles.contentImage} src={imgSrc} />
       <div className={styles.userContainer}>
-          <img className={styles.userImg} alt="" src={userImgSrc} />
+          <img className={styles.userImg} alt="" src={ !userImgSrc || userImgSrc === "" ? defaultUserImg : userImgSrc} />
         <p className={styles.userIdText}>{userId}</p>
         <p className={styles.likeText}>♡ {likeCount}</p>
       </div>

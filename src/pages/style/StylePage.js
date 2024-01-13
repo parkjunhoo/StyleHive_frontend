@@ -132,6 +132,15 @@ function StylePage() {
     setLoading(false);
   }
 
+  const getByFollow = async (page) => {
+    setLoading(true);
+    const res = await axios.get(`http://localhost:8080/api/community/follow/5/${page}`);
+    const comm = res.data.commList;
+    if(comm) setCommData(p=>[...p,...comm]);
+    setHasNext(res.data.hasNextPage);
+    setLoading(false);
+  }
+
   const getDataByCate = (page) => {
     switch(cate) {
       case 'sneakers':
@@ -156,6 +165,10 @@ function StylePage() {
 
       case 'tag':
         getByTagCommData(page);
+        break;
+
+      case 'follow':
+        getByFollow(page);
         break;
 
       default:

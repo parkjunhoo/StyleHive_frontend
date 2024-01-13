@@ -3,15 +3,17 @@ import styles from './StyleUserCard.module.css';
 import StyleCardSmall from './StyleCardSmall';
 import BasicButton from '../buttons/BasicButton';
 
+import defaultUserImg from '../../../assets/images/null-user.png';
+
 function StyleUserCard({data, rank}) {
   return (
     <div className={styles.container}>
       <div className={styles.userInfoDiv}>
         <p className={styles.rankText}>{rank}</p>
-        <img alt="user" src={data.userImg} className={styles.userPhoto}></img>
+        <img alt="user" src={data.userImg ? data.userImg : defaultUserImg} className={styles.userPhoto}></img>
         <div className={styles.userNameDiv}>
           <p className={styles.userIdText}>{data.userId}</p>
-          <p className={styles.followerText}>팔로워 {data.followCount}</p>
+          <p className={styles.followerText}>팔로워 {data.followedCount}</p>
         </div>
         <BasicButton className={styles.followBtn}><p className={styles.followBtnText}>팔로우</p></BasicButton>
       </div>

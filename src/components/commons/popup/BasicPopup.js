@@ -1,8 +1,15 @@
 import styles from './BasicPopup.module.css';
 
-function BasicPopup({children}) {
+function BasicPopup({children, backgroundColor, onClose}) {
   return (
-    <div className={styles.container}>
+    <div 
+      style={{
+        backgroundColor: backgroundColor ? backgroundColor : "rgba(34,34,34,.5)"
+      }}
+      className={styles.container}>
+      <div 
+        onClick={onClose ? onClose : null}
+        className={styles.background}></div>
       {children}
     </div>
   )
