@@ -4,8 +4,29 @@ import BasicInput from '../input/BasicInput';
 import StyleCommentCard from '../card/StyleCommentCard';
 import defaultUserImg from '../../../assets/images/null-user.png';
 import { simpleDateFormat } from '../../../utils/StringUtil';
+import { useState, useEffect } from 'react';
 
-function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose}) {
+function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose, onReg}) {
+
+  const [typing, setTyping] = useState(false);
+  const [inputText, setInputText] = useState("");
+
+  const checkInputValue = (e) => {
+    const val = e.target.value;
+    const tp = val.length > 0;
+    setInputText(val);
+    setTyping(tp);
+  }
+
+  const onRegBtnClick = () => {
+    onReg(inputText);
+    setInputText("");
+  }
+
+  useEffect(()=>{
+    
+  },[inputText])
+
   return (
     <BasicPopup 
     onClose = {onClose}
@@ -26,8 +47,12 @@ function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose}) {
             <div className={styles.writeDiv}>
               <img className={styles.userPhoto} alt="writer" src="https://cdn2.thecatapi.com/images/5es.jpg"></img>
               <BasicInput
-              placeholder={"댓글을 남기세요..."}
+                value={inputText}
+                onChange={(e)=>{checkInputValue(e)}}
+                style={{padding:"12px 48px 12px 12px"}}
+                placeholder={"댓글을 남기세요..."}
               />
+              {typing ? <div onClick={onRegBtnClick} className={styles.commentRegBtn}>등록</div> : null}
             </div>
         </div>
         <div className={styles.commListDiv}>

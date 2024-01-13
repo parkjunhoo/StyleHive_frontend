@@ -85,3 +85,13 @@
   overflow-y: auto;
   padding: 10px 15px;
 }
+
+.commentRegBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 25%;
+  padding: 3px;
+  box-sizing: border-box;
+}
