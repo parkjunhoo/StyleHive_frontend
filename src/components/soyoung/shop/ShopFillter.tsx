@@ -1,8 +1,7 @@
 import styles from "./ShopFillter.module.css";
 import "./ShopFillter.css";
-import "../CheckBox";
 import { useState } from "react";
-import CheckBox from "../CheckBox";
+import CheckBox from "./CheckBox";
 
 function ShopFillter() {
   const [openClose, setOC] = useState(false);

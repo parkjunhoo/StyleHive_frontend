@@ -1,5 +1,5 @@
-import "./CheckBox.css";
 import { useState } from "react";
+import "./CheckBox.css"
 
 type Props = {
   category: string;
