@@ -1,4 +1,4 @@
-import HeaderItem from "./HeaderItem";
+import HeaderItem from "../HeaderItem";
 import styles from "./MainPageHeader.module.css";
 
 function ShopPageHeaderBar() {
