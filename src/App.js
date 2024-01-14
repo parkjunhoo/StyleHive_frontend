@@ -5,7 +5,7 @@ import StylePost from "./pages/style/StylePost";
 import StyleProduct from "./pages/style/StyleProduct";
 
 import HeaderMain from "./pages/HeaderMain";
-import Footer from "./pages/Foot";
+import Footer from "./pages/Footer";
 import Recommend from "./pages/Recommend";
 import Rank from "./pages/Rank";
 import MainPageHeader from "./components/soyoung/MainPageHeader";
@@ -19,6 +19,7 @@ import Search from './components/sanghee/searchs/Search';
 import SearchResults from './components/sanghee/SearchResults';
 
 import { Router, Routes, Route } from "react-router-dom";
+import Shop from "./pages/Shop";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
           <Route path="/NoticeDetail" element={<NoticeDetail />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/InspectionCriteria" element={<InspectionCriteria />} />
+          <Route path="/shop" element={<Shop/>}/>
         </Routes>
       <Footer />
     </div>

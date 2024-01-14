@@ -1,0 +1,15 @@
+.shop__cate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.shop__img{
+    width: 6rem;
+    height: 6rem;
+    background-color: aliceblue;
+
+}
+.shop__title{
+    display: flex;
+    font-size: 0.8rem;
+}

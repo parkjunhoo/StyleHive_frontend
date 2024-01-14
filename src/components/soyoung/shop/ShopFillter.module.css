@@ -2,7 +2,7 @@
   width: 11rem;
 }
 .title {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   display: flex;
   margin: 1rem 0;
@@ -29,7 +29,7 @@
 }
 
 .category__name .name {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: bold;
   color: #555;
 }
