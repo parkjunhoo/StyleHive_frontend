@@ -6,7 +6,7 @@ import defaultUserImg from '../../../assets/images/null-user.png';
 import { simpleDateFormat } from '../../../utils/StringUtil';
 import { useState, useEffect } from 'react';
 
-function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose, onReg}) {
+function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose, onReg, groupId, onGroup, groupMessage, onGroupCancle}) {
 
   const [typing, setTyping] = useState(false);
   const [inputText, setInputText] = useState("");
@@ -19,13 +19,13 @@ function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose, onRe
   }
 
   const onRegBtnClick = () => {
-    onReg(inputText);
+    onReg(inputText, groupId);
     setInputText("");
   }
 
   useEffect(()=>{
-    
-  },[inputText])
+    if(groupMessage) setInputText(`@${groupMessage} `);
+  },[groupMessage])
 
   return (
     <BasicPopup 
@@ -44,6 +44,11 @@ function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose, onRe
                 <p className={styles.dateText}>{simpleDateFormat(authorDate)}</p>
               </div>
             </div>
+            {groupMessage ? <div className={styles.groupMessageDiv}>
+              <p className={styles.groupMessageText}>{groupMessage}님에게 답글쓰기</p>
+              <p onClick={()=>{onGroupCancle(); setInputText("");}} className={styles.groupCancleBtn}>X</p>
+            </div>
+             : null}
             <div className={styles.writeDiv}>
               <img className={styles.userPhoto} alt="writer" src="https://cdn2.thecatapi.com/images/5es.jpg"></img>
               <BasicInput
@@ -60,11 +65,14 @@ function StyleCommentPopup({authorId, authorImg, authorDate, data, onClose, onRe
             return (
               <StyleCommentCard
                 key={idx}
+                commentId = {i.commMentNo}
                 nestedList ={i.nestedList ? i.nestedList : null} 
                 userId = {i.userId}
                 content = {i.commMentContents}
                 date = {i.commMentDate}
                 userImg = {i.userImg}
+                onReply = {""}
+                onGroup = {onGroup}
               />
             )
           }): null}

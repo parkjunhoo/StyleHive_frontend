@@ -2,7 +2,7 @@ import styles from './StyleCommentCard.module.css';
 import defaultUserImg from '../../../assets/images/null-user.png';
 import { simpleDateFormat } from '../../../utils/StringUtil';
 
-function StyleCommentCard({userId, content, date, userImg, nestedList}) {
+function StyleCommentCard({commentId ,userId, content, date, userImg, nestedList, onGroup, isSumm}) {
   return (
     <div className={styles.container}>
       <div className={styles.commentDiv}>
@@ -14,7 +14,7 @@ function StyleCommentCard({userId, content, date, userImg, nestedList}) {
           </div>
           <div className={styles.flexDiv}>
             <p className={styles.dateText}>{simpleDateFormat(date)}</p>
-            <p className={styles.nestedAddText}>답글 쓰기</p>
+            {!isSumm ? <p onClick={()=>{onGroup(commentId, userId)}} className={styles.nestedAddText}>답글 쓰기</p> : null}
           </div>
         </div>
       </div>
@@ -28,6 +28,7 @@ function StyleCommentCard({userId, content, date, userImg, nestedList}) {
               content = {i.commMentContents}
               date = {i.commMentDate}
               userImg = {i.userImg}
+              onGroup = {onGroup}
             />
           )
         }): null}

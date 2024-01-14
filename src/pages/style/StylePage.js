@@ -9,6 +9,8 @@ import { scrollToTop } from '../../utils/Util';
 import axios from 'axios';
 import BasicSpiner from '../../components/commons/spinner/BasicSpiner';
 import StyleUser from './StyleUser';
+import BasicButton from '../../components/commons/buttons/BasicButton';
+import StyleRegPopup from '../../components/commons/popup/StyleRegPopup';
 
 function StylePage() {
   const getSize = 5;
@@ -217,9 +219,13 @@ function StylePage() {
 
   return(
     <div className={styles.contentContainer}>
+      <StyleRegPopup />
       <div className={styles.titleConainer}>
         STYLE
       </div>
+      <BasicButton className={styles.followBtn}>
+        <p className={styles.followBtnText}>스타일 등록</p>
+      </BasicButton>
       <LineTab 
         firstIndex={tabIdx}
         style={{

@@ -25,6 +25,8 @@ function StylePost() {
   const [commentHasNextPage, setCommentHasNextPage] = useState([false]);
   const [commentPage, setCommentPage] = useState(1);
   const [commentPopupState, setCommentPopupState] = useState(false);
+  const [groupId, setGroupId] = useState(null);
+  const [groupMessage, setGroupMessage] = useState(null);
   const getCommentSize = 20;
 
   const getPostData = async () => {
@@ -38,13 +40,23 @@ function StylePost() {
     setCommentHasNextPage(res.data.hasNextPage);
   }
 
-  const regComment = async (content) => {
+  const onGroup = (commentId, userId) => {
+    setGroupId(commentId);
+    setGroupMessage(userId);
+  }
+  const onGroupCancle = () => {
+    setGroupId(null);
+    setGroupMessage(null);
+  }
+
+  const regComment = async (content, groupId) => {
     const comment = {
       commNo: id,
       userId: "test",
       commMentContents: content,
       commMentDate: new Date(),
       commMentState: true,
+      commMentGroupNo: groupId,
     };
     const res = await axios.post("http://localhost:8080/api/community/comment/write",comment,
     {"Content-Type": "application/json"});
@@ -56,6 +68,7 @@ function StylePost() {
         text: "댓글이 등록되었습니다.",
         icon: "success"
       });
+      onGroupCancle();
       setCommentData(res.data.mentList);
     } else {
       Swal.fire({
@@ -84,6 +97,10 @@ function StylePost() {
     getCommentData(commentPage);
   },[commentPage])
 
+  useEffect(()=>{
+    console.log(groupId);
+  },[groupId])
+
   return (
     <div className={styles.container}>
       {postData !== null ?  
@@ -91,13 +108,18 @@ function StylePost() {
         {commentPopupState ? <StyleCommentPopup
         onClose = {()=>{setCommentPopupState(false)}}
         onReg = {regComment}
+        groupId = {groupId}
+        onGroup = {onGroup}
+        groupMessage = {groupMessage}
+        onGroupCancle = {onGroupCancle}
         data={commentData}
         authorId={postData.userId}
         authorImg={postData.userImg}
         authorDate={postData.commDate}
         /> : null}
-        <div onClick={()=>onClickUser(postData.userId)} className={styles.profileDiv}>
+        <div className={styles.profileDiv}>
           <img 
+          onClick={()=>onClickUser(postData.userId)}
           className={styles.profileImg} src={postData.userImg} alt="userProfile" />
           <div className={styles.profileNameDiv}>
             <p className={styles.nameText}>{postData.userId}</p>
@@ -158,10 +180,13 @@ function StylePost() {
             {postData.commentList.map((i,idx)=>{
               return (
                 <StyleCommentCard key={idx}
+                  commentId = {i.commMentNo}
                   userId = {i.userId}
                   content = {i.commMentContents}
                   date = {i.commMentDate}
                   userImg = {i.userImg}
+                  onGroup = {onGroup}
+                  isSumm = {true}
                 />
               )
             })}
