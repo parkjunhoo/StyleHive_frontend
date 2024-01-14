@@ -1,8 +1,8 @@
 // SearchResults.js
 
 import React from 'react';
-import Header from '../sanghee/Header';
-import Footer from '../sanghee/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import './SearchResults.css';
 
 import SearchInput from './searchs/SearchInput'; // 검색바
@@ -11,7 +11,7 @@ const SearchResults = () => {
   return (
     <>
     <Header />
-    <div className="sr_container r_content">
+    <div className="container r_content">
       <div className='search_title'>
         <SearchInput/>
         <div className='related_keywords'>
