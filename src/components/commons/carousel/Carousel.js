@@ -9,7 +9,7 @@ function Carousel({
   style, // style
 }) {
   const [index, setIndex] = useState(0);
-  const itemCount = children.length;
+  const itemCount = children ? children.length : 0;
 
   //하단 바 생성
   const makeNavBtn = () => {
@@ -32,7 +32,8 @@ function Carousel({
   }
 
   return(
-    <div className={className}
+    <div 
+    className={className}
     style={style}>
       <div className={styled.warpper}>
         <div style={{left: `${index * -100}%`}} className={styled.slider}>

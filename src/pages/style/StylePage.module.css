@@ -28,6 +28,21 @@
   flex-basis: calc(48%);
 }
 
+.followBtn {
+  max-width: fit-content;
+  background-color: #222222;
+  height: 35px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+.followBtnText {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
 
 @media (max-width: 800px) {
   .contentContainer {
