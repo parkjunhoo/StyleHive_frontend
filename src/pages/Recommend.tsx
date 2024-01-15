@@ -73,7 +73,7 @@ function Recommend() {
         </div>
       </div>
       <Banner />
-      <div className="container">
+      <div className="box">
         <div className="product__MostPopular">
           <SubTitle eng="Most Popular" kor="인기 상품" />
           <Cloths />
