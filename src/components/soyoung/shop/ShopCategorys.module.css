@@ -1,7 +1,6 @@
-.shop__categorys{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    margin: auto;
+.shop__categorys {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }

@@ -61,10 +61,9 @@ function ShopFillter() {
         </div>
         {openClose2 ? (
           <div className={openClose2 ? `${styles.open} border` : styles.open}>
-            <CheckBox category="아우터" />
-            <CheckBox category="신발" />
-            <CheckBox category="상의" />
-            <CheckBox category="하의" />
+            <CheckBox category="남성" />
+            <CheckBox category="여성" />
+            <CheckBox category="키즈" />
           </div>
         ) : null}
 

@@ -1,12 +1,13 @@
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-//이름다수정
+import logoImg from "../styleHive3.png";
+
 function Header() {
   return (
     <>
       <div className={styles.main_header}>
         <div className={styles.header__logo}>
-          <a>LOGO</a>
+          <img className={styles.header__logo__img} src={logoImg} alt="logo" />
         </div>
         <div className={styles.header__nav}>
           <div
