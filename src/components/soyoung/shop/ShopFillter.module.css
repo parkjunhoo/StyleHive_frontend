@@ -1,5 +1,5 @@
 .fillter {
-  width: 11rem;
+  width: 10rem;
 }
 .title {
   font-size: 0.8rem;
@@ -25,7 +25,6 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  flex-wrap: wrap;
 }
 
 .category__name .name {

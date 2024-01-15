@@ -8,7 +8,7 @@ import Rank100 from "../components/soyoung/Rank100";
 export default function Rank() {
   return (
     <>
-      <div className="container">
+      <div className="box">
         <div className="shoes__men">
           <SubTitle eng="남성 신발 인기 순위" kor="" />
           <Ranking />
