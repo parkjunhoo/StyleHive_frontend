@@ -1,12 +1,13 @@
 /* SearchResults.css */
 
-.sr_container {
+.container {
   max-width: 1150px;
   margin: 0 auto;
   background-color: #fff;
   display: flex;
   position: relative;
   margin-top: 120px;
+  margin-bottom: 30px;
 }
 
 .r_content {

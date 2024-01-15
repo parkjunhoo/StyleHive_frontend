@@ -202,8 +202,8 @@ function ProductMenu({info}) {
       </BasicButton>
       <AddInfo />
       <BrandButton
-      iconSrc={getImageApi(info.brand.productBrandImg)}
-      name={info.brand.productBrandEngName} subName={info.brand.productBrandKorName}/>
+      iconSrc={getImageApi(info.productBrand.productBrandImg)}
+      name={info.productBrand.productBrandEngName} subName={info.productBrand.productBrandKorName}/>
       <div style={{backgroundColor:"#7777a59e", width:"100%", height:"80px", margin:"15px 0"}}>
         Banner
       </div>

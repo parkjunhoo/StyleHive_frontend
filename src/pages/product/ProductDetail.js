@@ -23,7 +23,8 @@ function ProductDetail() {
   const getProductData = async () => {
     const res = await axios.get(`http://localhost:8080/api/product/${productId}`);
     setProductData(res.data);
-    getAnotherBrand(res.data.productBrandId);
+    console.log(res.data);
+    getAnotherBrand(res.data.productBrand.productBrandId);
   }
   
   const getStyleData = async () => {
@@ -69,7 +70,7 @@ function ProductDetail() {
           <ProductCard />
         </ProductListGrid>
       </ProductDetailSection> */}
-      {productData ? <ProductDetailSection title={`${productData.brand.productBrandEngName}의 다른 상품`} more={true}>
+      {productData ? <ProductDetailSection title={`${productData.productBrand.productBrandEngName}의 다른 상품`} more={true}>
         <ProductListGrid>
           {anotherBrand !== null ? 
             anotherBrand.map(({productId, imgUrl, productEngName, productBrandEngName, nowBuyPrice }, idx)=>{
