@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.summDiv {
+  min-height: 32px;
+}
+
+.contentDiv {
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  transition: height 0.2s ease;
+}
+.content {
+  padding: 5px;
+  box-sizing: border-box;
+}

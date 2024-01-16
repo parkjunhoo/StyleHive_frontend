@@ -1,6 +1,6 @@
 import styles from './StyleCommentPopup.module.css';
 import BasicPopup from './BasicPopup';
-import BasicInput from '../input/BasicInput';
+import {BasicInput} from '../input/BasicInput';
 import StyleCommentCard from '../card/StyleCommentCard';
 import defaultUserImg from '../../../assets/images/null-user.png';
 import { simpleDateFormat } from '../../../utils/StringUtil';

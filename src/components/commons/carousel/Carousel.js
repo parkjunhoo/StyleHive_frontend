@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 import styled from "./Carousel.module.css";
 
 function Carousel({
@@ -9,8 +9,13 @@ function Carousel({
   style, // style
 }) {
   const [index, setIndex] = useState(0);
-  const itemCount = children ? children.length : 0;
+  const [itemCount, setItemCount] = useState(0);
 
+  useEffect(()=>{
+    const count = children ? children.filter((i)=>i!==null).flat().length : 0
+    setItemCount(count);
+    moveTo(count-1);
+  },[children])
   //하단 바 생성
   const makeNavBtn = () => {
     const btns = [];

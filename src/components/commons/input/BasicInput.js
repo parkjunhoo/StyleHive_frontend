@@ -18,4 +18,21 @@ function BasicInput({value, placeholder, style, onChange}) {
   )
 }
 
-export default BasicInput;
+function BasicTextarea({value, placeholder, style, onChange}) {
+  const input = useRef(null);
+  useEffect(()=>{
+    input.current.value = value;
+  },[value])
+
+  return (
+    <textarea
+    ref={input}
+    style={style}
+    onChange={onChange}
+    placeholder={placeholder}
+    className={styles.container}>
+    </textarea>
+  )
+}
+
+export {BasicInput, BasicTextarea};

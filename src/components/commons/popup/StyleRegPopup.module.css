@@ -7,9 +7,12 @@
   padding: 10px;
   box-sizing: border-box;
   box-shadow: 10px 5px 5px rgb(103, 103, 103);
+  display: flex;
+  flex-direction: column;
 }
 
 .titleDiv {
+  height: 5%;
   display: flex;
   padding: 10px;
   justify-content: center;
@@ -24,16 +27,21 @@
 .verticalDiv {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 95%;
 }
 .verticalDiv>div{
+  position: relative;
   width: 50%;
+  height: 100%;
   padding: 5px;
   box-sizing: border-box;
 }
 
 .photoUploadDiv {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .photoUploadBtn {
   border: 1px solid rgb(227, 227, 227);
@@ -44,17 +52,97 @@
 }
 .photoDisplayDiv {
   width: 100%;
-  height: 80%;
+  height: 90%;
   border: 1px solid rgb(222, 222, 222);
+}
+.fileListDiv{
+  display: flex;
+  width: 100%;
+  height: 10%;
+  overflow-x: auto;
 }
 
 .uploadZone {
   cursor: pointer;
   z-index:500;
-  border: 1px solid rgb(215, 215, 215);
+  border: 1px dashed rgb(215, 215, 215);
   width: 50%;
   height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.productTagDiv {
+  height: 40%;
+}
+.tagAddBtn {
+  box-shadow: 5px 5px 5px rgb(194, 194, 194);
+  height: 10%;
+  width: 100%;
+  margin-left: auto;
+}
+
+.productTagList {
+  border: 1px solid rgb(224, 224, 224);
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.productTagSearchDiv {
+  position: relative;
+  height: 40vh;
+  z-index: 500;
+  width: 100%;
+  border: 1px solid rgb(135, 135, 135);
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.styleInfoDiv{
+  height:40%;
+  border: 1px solid rgb(160, 160, 160);
+}
+
+.writeDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btnDiv {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.removePhotoButton {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.removePhotoButton > img {
+  width: 100%;
+  height: 100%;
+}
+
+.removePhotoButton:hover .removeButtonDeco{
+  display: flex;
+}
+
+.removeButtonDeco {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.22);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }
