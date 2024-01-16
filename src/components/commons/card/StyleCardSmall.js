@@ -1,3 +1,4 @@
+import { getImageApi } from '../../../utils/StringUtil';
 import styles from './StyleCardSmall.module.css';
 
 function StyleCardSmall ({imgUrl, likeCount, onClick, style}) {
@@ -6,7 +7,7 @@ function StyleCardSmall ({imgUrl, likeCount, onClick, style}) {
       onClick={onClick}
       style={style}
       className={styles.container}>
-        <img src={imgUrl} alt="post"></img>
+        <img src={getImageApi(imgUrl)} alt="post"></img>
         <div className={styles.likeCountDiv}>
           <p className={styles.likeCountText}>♥ {likeCount}</p>
         </div>
