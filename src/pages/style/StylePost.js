@@ -8,7 +8,7 @@ import StyleCommentCard from "../../components/commons/card/StyleCommentCard";
 import StyleCommentPopup from "../../components/commons/popup/StyleCommentPopup";
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import {simpleDateFormat2} from '../../utils/StringUtil';
+import {getImageApi, simpleDateFormat2} from '../../utils/StringUtil';
 import { scrollToTop } from "../../utils/Util";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -135,7 +135,7 @@ function StylePost() {
         >
           {postData.imgList.map((i,idx)=>{
             return (
-              <img key={idx} alt="post" src={i.imgThumbUrl} />
+              <img key={idx} alt="post" src={getImageApi(i.imgThumbUrl)} />
             )
           })}
         </Carousel>

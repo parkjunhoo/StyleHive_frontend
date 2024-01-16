@@ -26,6 +26,7 @@ function StylePage() {
   const [hasNext, setHasNext] = useState(true);
   const hasNextRef = useRef(hasNext);
   const [bestTags, setBestTags] = useState([]);
+  const [regPopupOpen, setRegPopupOpen] = useState(false);
 
   const target = useRef(null);
 
@@ -219,12 +220,12 @@ function StylePage() {
 
   return(
     <div className={styles.contentContainer}>
-      <StyleRegPopup />
+      {regPopupOpen ? <StyleRegPopup onClose={()=>{setRegPopupOpen(false)}} /> : null}
       <div className={styles.titleConainer}>
         STYLE
       </div>
       <BasicButton className={styles.followBtn}>
-        <p className={styles.followBtnText}>스타일 등록</p>
+        <p onClick={()=>{setRegPopupOpen(true)}} className={styles.followBtnText}>스타일 등록</p>
       </BasicButton>
       <LineTab 
         firstIndex={tabIdx}
