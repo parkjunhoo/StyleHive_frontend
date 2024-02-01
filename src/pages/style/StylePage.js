@@ -224,8 +224,8 @@ function StylePage() {
       <div className={styles.titleConainer}>
         STYLE
       </div>
-      <BasicButton className={styles.followBtn}>
-        <p onClick={()=>{setRegPopupOpen(true)}} className={styles.followBtnText}>스타일 등록</p>
+      <BasicButton onClick={()=>{setRegPopupOpen(true)}} className={styles.followBtn}>
+        <p className={styles.followBtnText}>스타일 등록</p>
       </BasicButton>
       <LineTab 
         firstIndex={tabIdx}

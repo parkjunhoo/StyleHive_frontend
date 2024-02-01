@@ -8,6 +8,7 @@
 }
 
 .product__TOPBrand {
+  margin-top: 15px;
   padding: 3rem 0;
   border-top: rgba(34, 34, 34, 0.1) 1px solid;
 }
@@ -15,6 +16,7 @@
   padding: 3rem 0;
 }
 .style__required {
+  margin-top: 15px;
   padding: 3rem 0;
   border-top: rgba(34, 34, 34, 0.1) 1px solid;
 }

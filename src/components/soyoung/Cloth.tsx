@@ -1,30 +1,27 @@
 import styles from "./Cloth.module.css";
 import "./Cloth.css";
-type Props = {
-  product: {
-    image: string;
-    maker: string;
-    detail: string;
-    price: number;
-    special: string;
-  };
-  children?: React.ReactNode;
-};
-function setNumberComma(num: number): string {
-  return num.toLocaleString("ko-KR");
-}
+import { intToWon, getImageApi } from "../../utils/StringUtil";
+import { ReactElement } from "react";
 
-function Cloth({ product, children }: Props) {
+type Props = {
+  product?: any,
+  children?: ReactElement,
+  onClick?: any,
+};
+
+function Cloth(props:Props) {
   return (
-    <div className={styles.product}>
-      <div className={styles.product__image}>{children}</div>
+    <div 
+    onClick={props.onClick ? props.onClick : null}
+    className={styles.product}>
+      <div className={styles.product__image}><img alt="product" src={getImageApi(props.product.imgUrl)}></img></div>
       <div className={styles.product__info}>
-        <a className={styles.product__maker}>{product.maker}</a>
-        <a className={styles.product__detail}>{product.detail}</a>
-        <a className={styles.product__price}>
-          {setNumberComma(product.price)}원
-        </a>
-        <a className={styles.product__special}>{product.special}</a>
+        <p className={styles.product__maker}>{props.product.productBrandEngName}</p>
+        <p className={styles.product__detail}>{props.product.productEngName}</p>
+        <p className={styles.product__price}>
+          {intToWon(props.product.nowBuyPrice)}원
+        <p className={styles.product__special}>즉시 구매가</p>
+        </p>
       </div>
     </div>
   );
