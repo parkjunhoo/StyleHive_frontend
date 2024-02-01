@@ -9,6 +9,9 @@
   background: #e4e4e4;
   border-radius: 5%;
   position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .style_nickname {
   position: absolute;
@@ -24,6 +27,9 @@
   height: 2rem;
   display: block;
   background: #e4e4e4;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border: 2px white solid;
   border-radius: 50%;
   margin: 0.5rem;

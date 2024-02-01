@@ -19,7 +19,7 @@ function Header() {
             <NavLink to="/">HOME</NavLink>
           </div>
           <div className={styles.header__nav__item}>
-            <NavLink to="/style">STYLE</NavLink>
+            <NavLink to="/style/sneakers">STYLE</NavLink>
           </div>
           <div className={styles.header__nav__item}>
             <NavLink to="/shop">SHOP</NavLink>

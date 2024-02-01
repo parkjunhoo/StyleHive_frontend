@@ -1,5 +1,5 @@
 function intToWon(num) {
-  if(num === "-" || num === 0) return "구매 입찰";
+  if(num === "-" || num === 0 || !num) return "-";
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원";
 }
 
