@@ -1,8 +1,6 @@
 // RankPage.js
 
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import ProductItem from './ProductItem';
 import './RankPage.css';
 import menShoeDummyData from '../../MenShoeDummyData';
@@ -12,7 +10,6 @@ const RankPage = ({ title }) => {
   
   return (
     <>
-    <Header />
       <div className="container">
     <div className="rank-page">
       <h2>{title}</h2>
@@ -27,7 +24,6 @@ const RankPage = ({ title }) => {
       </div>
     </div>
       </div>
-      <Footer />
     </>
   );
 };

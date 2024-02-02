@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
 import Nav from './Nav';
 import './NoticeDetail.css';
 
@@ -54,7 +52,6 @@ const NoticeDetail = ({ match }) => {
 
   return (
     <>
-    <Header />
       <div className="container">
       <Nav />
       <div className="content">
@@ -73,7 +70,6 @@ const NoticeDetail = ({ match }) => {
         </div>
       </div>
       </div>
-      <Footer />
     </>
   );
 };

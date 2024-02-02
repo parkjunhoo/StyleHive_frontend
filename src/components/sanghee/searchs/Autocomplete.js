@@ -1,7 +1,6 @@
 // Autocomplete.js
 // 자동 완성 검색
 
-import React from 'react';
 import './Autocomplete.css';
 
 const AutocompleteSection = ({ autocompleteResults }) => (

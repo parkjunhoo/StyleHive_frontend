@@ -3,8 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Link 추가
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleLeft, faAngleLeft, faAngleRight, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
-import Header from './Header';
-import Footer from './Footer';
 import Nav from './Nav';
 import './NoticeList.css';
 
@@ -65,7 +63,6 @@ const NoticeList = () => {
 
   return (
     <>
-    <Header />
       <div className="container">
         <Nav />
       <div className="content">
@@ -100,7 +97,6 @@ const NoticeList = () => {
         </div>
       </div>
       </div>
-      <Footer />
     </>
   );
 };
