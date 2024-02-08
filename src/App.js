@@ -18,10 +18,27 @@ import InspectionCriteria from './components/sanghee/InspectionCriteria';
 import Search from './components/sanghee/searchs/Search';
 import SearchResults from './components/sanghee/SearchResults';
 
+import React, { useState } from 'react';
 import { Router, Routes, Route } from "react-router-dom";
 import Shop from "./pages/Shop";
 
 function App() {
+  // yourOnSaveRecentSearchFunction를 정의하거나 가져옴
+  const yourOnSaveRecentSearchFunction = (searchQuery) => {};
+
+  const [recentSearches, setRecentSearches] = useState([]);
+
+  const saveRecentSearch = (keyword) => {
+    // 기존 검색어 배열에서 중복 검색어 제거
+    const updatedSearches = recentSearches.filter((search) => search !== keyword);
+
+    // 새로운 검색어 추가
+    const newRecentSearches = [keyword, ...updatedSearches.slice(0, 4)];
+
+    // 최근 검색어 상태 업데이트
+    setRecentSearches(newRecentSearches);
+  };
+  
   return (
     <div className="App">
       <header>
@@ -41,11 +58,11 @@ function App() {
           <Route path="/woman" element={<h1>woman</h1>} />
           <Route path="/discovery" element={<h1>discovery</h1>} />
           <Route path="*" element={<h1>없는페이지 입니다.</h1>} />
-          <Route path="/Search" element={<Search />} />
-          <Route path="/" element={<SearchResults />} />
+          <Route path="/Search" element={<Search recentSearches={recentSearches} onSaveRecentSearch={saveRecentSearch} />} />
+          <Route path="/SearchResults" element={<SearchResults recentSearches={recentSearches} onSaveRecentSearch={saveRecentSearch} />} />
           <Route path="/RankPage" element={<RankPage title="남성 신발 인기 순위" />} />
           <Route path="/NoticeList" element={<NoticeList />} />
-          <Route path="/NoticeDetail" element={<NoticeDetail />} />
+          <Route path="/NoticeDetail/:id" element={<NoticeDetail />} />
           <Route path="/FAQs" element={<FAQs />} />
           <Route path="/InspectionCriteria" element={<InspectionCriteria />} />
           <Route path="/shop" element={<Shop/>}/>

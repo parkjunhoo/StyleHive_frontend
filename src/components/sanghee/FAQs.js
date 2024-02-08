@@ -3,8 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react'; // useRef 추가
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown, faTimes } from '@fortawesome/free-solid-svg-icons';
-import Header from './Header';
-import Footer from './Footer';
 import Nav from './Nav';
 import './FAQs.css';
 import axios from 'axios';  // axios import 추가
@@ -166,7 +164,6 @@ const FAQs = () => {
 
   return (
     <>
-    <Header />
       <div className="container">
     <Nav />
     <div className="question-container">
@@ -256,7 +253,6 @@ const FAQs = () => {
       </div>
     </div>
       </div>
-      <Footer />
     </>
   );
 };
